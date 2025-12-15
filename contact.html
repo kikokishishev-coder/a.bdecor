@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакт | A.BdECOR</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <div class="logo-container">
+      <h1 class="logo">A.<span>Bd</span>ECOR</h1>
+    </div>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Начало</a></li>
+        <li><a href="about.html">За нас</a></li>
+        <li><a href="gallery.html">Галерия</a></li>
+        <li><a href="contact.html" class="active">Контакт</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="content">
+  <h2>Свържи се с нас</h2>
+
+  <form action="send.php" method="POST">
+    <input type="text" name="name" placeholder="Вашето име" required>
+    <input type="email" name="email" placeholder="Вашият Email" required>
+    <textarea name="message" placeholder="Вашето съобщение" required></textarea>
+    <button type="submit">Изпрати</button>
+
+    <!-- Телефонен номер САМО КАТО ТЕКСТ -->
+    <p class="contact-phone">Тел: +359 89 370 46 84</p>
+  </form>
+</div>
+
+<footer>
+  <p>© 2025 A.BdECOR | Всички права запазени</p>
+</footer>
+
+</body>
+</html>

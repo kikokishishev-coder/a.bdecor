@@ -1,0 +1,994 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #111;
+  color: #fff;
+}
+
+/* HEADER */
+
+header {
+  background: #000;
+  color: #d4af37;
+  padding: 15px 30px;
+  border-bottom: 2px solid #d4af37;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.logo-container {
+  flex: 1;
+}
+
+.logo {
+  font-size: 32px;
+  letter-spacing: 2px;
+}
+
+.logo span {
+  color: white;
+}
+
+/* MENU IN CENTER */
+
+nav {
+  flex: 2;
+}
+
+nav ul.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  padding: 10px 15px;
+  border: 2px solid #d4af37;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+nav ul.nav-links li a:hover,
+nav ul.nav-links li a.active {
+  background: #d4af37;
+  color: #000;
+}
+
+/* SEARCH ON RIGHT */
+
+.search-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.neon-input {
+  padding: 8px 18px;
+  width: 180px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  color: #fff;
+  background: #000;
+  position: relative;
+  z-index: 2;
+}
+
+.outer-glow {
+  position: absolute;
+  width: 200px;
+  height: 40px;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  pointer-events: none;
+  overflow: hidden;
+  filter: blur(25px);
+  opacity: 0.9;
+}
+
+.outer-glow::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    #4d3fd0 60deg,
+    transparent 120deg,
+    #e830ba 200deg,
+    transparent 280deg
+  );
+  animation: spin-effect 4s linear infinite;
+}
+
+@keyframes spin-effect {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* HERO */
+
+.hero {
+  background: url('/images/A.BdECOr.jpg') center/cover no-repeat;
+  height: 90vh;
+  position: relative;
+}
+
+.hero .overlay {
+  background: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h2 {
+  font-size: 42px;
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background: #d4af37;
+  color: #000;
+  padding: 10px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* Фон за текста в hero */
+.hero .overlay h2,
+.hero .overlay p {
+  background: rgba(0, 0, 0, 0.5); /* само за текста */
+  padding: 10px 20px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* Премахваме background от галерията (ако случайно има) */
+.gallery img {
+  background: none; /* гарантирано без фон */
+}
+.index img{
+  background: none;
+}
+
+/* CONTENT FORM */
+
+.content {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+  gap: 10px;
+}
+
+input, textarea {
+  padding: 10px;
+  border: 1px solid #d4af37;
+  border-radius: 5px;
+  background: #000;
+  color: #fff;
+}
+
+button {
+  background: #d4af37;
+  color: #000;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* GALLERY */
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+}
+
+/* Гарантирано без фон за всички изображения в галерията */
+.gallery img {
+  background: none;  /* премахва всякакъв фон */
+  border: 2px solid #d4af37;
+  border-radius: 8px;
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+
+/* FOOTER */
+
+footer {
+  background: #000;
+  color: #d4af37;
+  text-align: center;
+  padding: 15px;
+  border-top: 2px solid #d4af37;
+  margin-top: 40px;
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .search-container {
+    justify-content: center;
+  }
+}
+
+/* ===== LIGHTBOX СТИЛ ===== */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.3s ease;
+}
+
+.lightbox-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border: 3px solid #d4af37;
+  border-radius: 10px;
+  box-shadow: 0 0 25px #d4af37;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: #d4af37;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: #fff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Нов контейнер за галерията */
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background: none; /* няма фон */
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 20px;
+}
+
+.category {
+  width: 280px;
+  text-align: center;
+  background: #000;
+  border: 2px solid #d4af37;
+  border-radius: 10px;
+  padding: 15px;
+  transition: transform 0.3s;
+}
+
+.category:hover {
+  transform: scale(1.05);
+}
+
+.category img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.category h3 {
+  color: #d4af37;
+  margin-bottom: 5px;
+}
+
+.category p {
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.category .price {
+  color: #d4af37;
+  font-weight: bold;
+}
+
+/* Анимация при затваряне на lightbox */
+.lightbox-overlay.fade-out {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+/* Заключване на скрол на страницата, когато е отворен lightbox */
+.body-lock {
+  overflow: hidden;
+}
+
+/* ABOUT PAGE STYLES */
+.about-hero {
+  padding: 60px 20px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.6));
+}
+.about-hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.about-hero-text {
+  flex: 1 1 480px;
+  color: #fff;
+}
+.about-hero-text h2 {
+  color: #d4af37;
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+.about-hero-text p.lead {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+.about-hero-image {
+  flex: 1 1 360px;
+  display: flex;
+  justify-content: center;
+}
+.about-hero-image img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 12px;
+  border: 3px solid #d4af37;
+  object-fit: cover;
+}
+
+/* History */
+.about-history .container,
+.about-team .container,
+.about-approach .container,
+.about-testimonials .container,
+.about-cta .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+.about-history h3,
+.about-team h3,
+.about-approach h3,
+.about-testimonials h3 {
+  color: #d4af37;
+  margin-bottom: 12px;
+}
+.lead { color: #fff; margin-bottom: 18px; }
+
+/* Timeline */
+.timeline {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.timeline-item {
+  background: #000;
+  border: 2px solid #d4af37;
+  padding: 14px;
+  border-radius: 8px;
+  width: 220px;
+}
+
+/* Team */
+.team-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.team-card {
+  background: #000;
+  border: 2px solid #d4af37;
+  border-radius: 10px;
+  padding: 12px;
+  width: 300px;
+  text-align: center;
+}
+.team-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.team-card .role { color: #d4af37; font-weight: 600; margin-bottom: 8px; }
+
+/* Approach steps */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.step {
+  background: #000;
+  border: 2px solid #d4af37;
+  padding: 14px;
+  border-radius: 8px;
+}
+
+/* Testimonials */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+.testimonial {
+  background: rgba(255,255,255,0.03);
+  border-left: 4px solid #d4af37;
+  padding: 16px;
+  border-radius: 6px;
+  color: #fff;
+}
+
+/* CTA */
+.about-cta {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(180deg, rgba(13,13,13,0.9), rgba(0,0,0,0.9));
+}
+.about-cta .about-cta-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 14px;
+}
+.btn-outline {
+  background: transparent;
+  color: #d4af37;
+  border: 2px solid #d4af37;
+}
+.btn-phone {
+  background: transparent;
+  color: #fff;
+  border: 2px dashed #d4af37;
+}
+
+/* Responsive tweaks */
+@media screen and (max-width: 900px) {
+  .about-hero-inner { flex-direction: column-reverse; text-align: center; }
+  .about-hero-image img { max-width: 320px; }
+}
+
+/* Gallery thumbnails sized like homepage category cards */
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.gallery-item {
+  width: 280px;            /* същата ширина като .category */
+  text-align: center;
+  background: transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid transparent;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;           /* същата височина като .category img */
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover ефект за миниатюрите */
+.gallery-item:hover img {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+}
+
+/* За по-малки екрани: правим миниатюрите по-тесни */
+@media screen and (max-width: 480px) {
+  .gallery-item {
+    width: calc(50% - 16px);
+  }
+  .gallery-item img {
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .gallery-item {
+    width: 100%;
+  }
+  .gallery-item img {
+    height: 180px;
+  }
+}
+
+/* Принудителен размер за изображения в галерията */
+.gallery-container .gallery-item {
+  width: 300px;            /* широчина на контейнера */
+  height: 400px;           /* височина на контейнера (за визуално оформление) */
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px;
+}
+
+.gallery-container .gallery-item img {
+  width: 300px;           /* фиксирана широчина */
+  height: 400px;          /* фиксирана височина */
+  object-fit: cover;      /* запазва кадрирането без деформация */
+  display: block;
+  border-radius: 8px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover ефект (по избор) */
+.gallery-container .gallery-item:hover img {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+}
+
+/* Responsive корекции */
+@media screen and (max-width: 480px) {
+  .gallery-container .gallery-item,
+  .gallery-container .gallery-item img {
+    width: calc(50% - 16px);
+    height: 220px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .gallery-container .gallery-item,
+  .gallery-container .gallery-item img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Фиксиран размер за изображения в галерията */
+.gallery-container .gallery-item {
+  width: 300px;
+  height: 400px;
+  overflow: hidden;
+  display: inline-block;
+  margin: 10px;
+  vertical-align: top;
+}
+
+.gallery-container .gallery-item img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gallery-container .gallery-item:hover img {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+/* Responsive корекции */
+@media screen and (max-width: 480px) {
+  .gallery-container .gallery-item,
+  .gallery-container .gallery-item img {
+    width: calc(50% - 16px);
+    height: 220px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .gallery-container .gallery-item,
+  .gallery-container .gallery-item img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Основни стилове (включи и останалите си правила) */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "Poppins", sans-serif; background: #111; color: #fff; }
+
+/* Галерия */
+.gallery-container { display:flex; flex-wrap:wrap; gap:18px; justify-content:center; padding:24px; }
+.gallery-item { width:300px; height:400px; overflow:hidden; border-radius:8px; border:2px solid transparent; background:transparent; }
+.gallery-item img { width:100%; height:100%; object-fit:cover; display:block; cursor:pointer; transition:transform .25s ease, box-shadow .25s ease; border:2px solid #d4af37; border-radius:6px; }
+.gallery-item img:hover { transform:scale(1.03); box-shadow:0 8px 20px rgba(0,0,0,0.35); }
+
+/* Модал (показва само едно изображение и описание) */
+.image-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.88);
+  z-index: 2000;
+  padding: 20px;
+}
+.image-modal[aria-hidden="false"] { display: flex; }
+
+.modal-content {
+  max-width: 1100px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal-content img {
+  max-width: 100%;
+  max-height: calc(90vh - 120px);
+  object-fit: contain;
+  border-radius: 8px;
+  border: 3px solid #d4af37;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+  background: #000;
+}
+
+.modal-caption {
+  color: #fff;
+  background: rgba(0,0,0,0.45);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-align: center;
+  max-width: 100%;
+}
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  background: transparent;
+  color: #d4af37;
+  border: none;
+  font-size: 34px;
+  cursor: pointer;
+  padding: 6px 10px;
+  line-height: 1;
+}
+.modal-close:focus { outline: 3px solid rgba(208, 160, 60, 0.18); border-radius:6px; }
+
+/* Navigation controls inside modal */
+.modal-controls { display:flex; gap:12px; margin-top:6px; }
+.modal-nav {
+  background: rgba(212,175,55,0.12);
+  color: #d4af37;
+  border: 1px solid rgba(212,175,55,0.18);
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.modal-nav:focus { outline: 3px solid rgba(208, 160, 60, 0.18); }
+
+/* Accessibility: hide background from screen readers when modal open */
+body.body-lock { overflow: hidden; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .gallery-item { width: calc(50% - 20px); height: 260px; }
+  .modal-content img { max-height: calc(80vh - 120px); }
+}
+@media (max-width: 480px) {
+  .gallery-item { width: calc(50% - 12px); height: 180px; }
+  .modal-close { top: 10px; right: 12px; font-size: 28px; }
+}
+
+/* Модал (показва само едно изображение и описание) */
+.image-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.88);
+  z-index: 2000;
+  padding: 20px;
+}
+.image-modal[aria-hidden="false"] { display: flex; }
+
+.modal-content {
+  max-width: 1100px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.modal-content img {
+  max-width: 100%;
+  max-height: calc(90vh - 120px);
+  object-fit: contain;
+  border-radius: 8px;
+  border: 3px solid #d4af37;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+  background: #000;
+}
+
+.modal-caption {
+  color: #fff;
+  background: rgba(0,0,0,0.45);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-align: center;
+  max-width: 100%;
+}
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  background: transparent;
+  color: #d4af37;
+  border: none;
+  font-size: 34px;
+  cursor: pointer;
+  padding: 6px 10px;
+  line-height: 1;
+}
+.modal-close:focus { outline: 3px solid rgba(208,160,60,0.18); border-radius:6px; }
+
+/* Navigation controls inside modal */
+.modal-controls { display:flex; gap:12px; margin-top:6px; }
+.modal-nav {
+  background: rgba(212,175,55,0.12);
+  color: #d4af37;
+  border: 1px solid rgba(212,175,55,0.18);
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.modal-nav:focus { outline: 3px solid rgba(208,160,60,0.18); }
+
+/* Accessibility: hide background from screen readers when modal open */
+body.body-lock { overflow: hidden; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .modal-content img { max-height: calc(80vh - 120px); }
+}
+@media (max-width: 480px) {
+  .modal-close { top: 10px; right: 12px; font-size: 28px; }
+}
+
+/* Mobile-first оптимизация */
+@media screen and (max-width: 768px) {
+  nav ul.nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search-container {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  form {
+    width: 500%;
+    max-width: 500%;
+    padding: 0 10px;
+  }
+
+  input, textarea, button {
+    font-size: 16px;
+  }
+
+  .gallery img {
+    width: 500%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .logo {
+    font-size: 24px;
+  }
+
+  nav ul.nav-links li a {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .gallery-item {
+    width: 500%;
+    height: auto;
+  }
+}
+
+/* Mobile override — не променя оригиналните файлове */
+@media (max-width: 900px) {
+  .header-container { flex-direction: column !important; align-items: center !important; gap: 8px !important; }
+  nav ul.nav-links { flex-direction: column !important; gap: 8px !important; width: 100% !important; padding: 0 12px !important; }
+  nav ul.nav-links li a { display: block !important; width: 100% !important; box-sizing: border-box !important; }
+  .search-container { width: 100% !important; justify-content: center !important; margin-top: 8px !important; }
+  .logo { font-size: 22px !important; text-align: center !important; }
+  form { width: 100% !important; max-width: 100% !important; padding: 0 12px !important; }
+  input.neon-input { width: 100% !important; max-width: 100% !important; }
+  .gallery-container, .gallery { justify-content: center !important; gap: 12px !important; padding: 12px !important; }
+  .gallery-item, .gallery-container .gallery-item { width: calc(50% - 12px) !important; height: auto !important; margin: 6px !important; }
+  .gallery-item img, .gallery-container .gallery-item img { width: 100% !important; height: auto !important; object-fit: cover !important; }
+  .lightbox-overlay img { max-width: 95% !important; max-height: 85% !important; }
+  header { padding: 12px 14px !important; }
+  .content { padding: 28px 12px !important; }
+  button, .btn { min-height: 44px !important; padding: 12px 16px !important; font-size: 16px !important; }
+}
+@media (max-width: 420px) {
+  .gallery-item { width: 100% !important; }
+}
+
+/* Force nav inline and hide search */
+@media (min-width: 320px) {
+  nav ul.nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  nav ul.nav-links li {
+    display: inline-block !important;
+  }
+
+  nav ul.nav-links li a {
+    display: inline-block !important;
+    padding: 8px 12px !important;
+    border-radius: 6px !important;
+  }
+
+  /* Скриваме търсачката */
+  .search-container { display: none !important; }
+
+  /* Малки корекции за хедъра */
+  .header-container { align-items: center !important; gap: 8px !important; }
+  .logo { margin-right: 8px !important; }
+}
+
+/* Заглавия над снимките в галерията */
+.gallery-item {
+  position: relative;
+  text-align: center;
+  overflow: visible;
+}
+
+.gallery-title {
+  font-size: 16px;
+  color: #d4af37; /* златист цвят, съвпадащ с темата */
+  margin: 10px 0 8px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  text-transform: none;
+}
+
+/* Ако искаш заглавието да е върху изображението (overlay) - алтернативен стил */
+.gallery-item.overlay .gallery-title {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  margin: 0;
+  background: rgba(0,0,0,0.45);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.contact-phone {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #d4af37;
+  font-weight: 600;
+}
